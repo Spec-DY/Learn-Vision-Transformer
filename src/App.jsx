@@ -7,7 +7,7 @@ const VisionTransformerDemo = () => {
   const [showDetails, setShowDetails] = useState(false);
 
   // Sample image path
-  const imagePath = "https://placehold.co/400x300";
+  const imagePath = "/cat.jpg";
 
   // Steps in the ViT process
   const steps = [
@@ -95,26 +95,41 @@ const VisionTransformerDemo = () => {
             />
           </div>
         );
-      case 1: // Patch extraction
+      case 1: // Patch extraction - FIXED VERSION
         return (
           <div className="grid grid-cols-4 gap-1">
             {Array(16)
               .fill()
-              .map((_, i) => (
-                <div key={i} className="border-2 border-blue-400 relative">
-                  <img
-                    src={imagePath}
-                    alt={`Patch ${i}`}
-                    className="w-full h-full object-cover"
-                    style={{
-                      objectPosition: `${-100 * (i % 4)}% ${
-                        -100 * Math.floor(i / 4)
-                      }%`,
-                      transform: "scale(4)",
-                    }}
-                  />
-                </div>
-              ))}
+              .map((_, i) => {
+                // Calculate row and column for this patch
+                const col = i % 4;
+                const row = Math.floor(i / 4);
+
+                // Calculate the percentage position for object-position
+                // This gives us sections of the original image
+                const xPos = col * 33.33;
+                const yPos = row * 33.33;
+
+                return (
+                  <div
+                    key={i}
+                    className="border-2 border-blue-400 relative overflow-hidden h-16 w-16"
+                  >
+                    <img
+                      src={imagePath}
+                      alt={`Patch ${i}`}
+                      className="absolute w-full h-full object-cover"
+                      style={{
+                        objectPosition: `${xPos}% ${yPos}%`,
+                        width: "400%",
+                        height: "400%",
+                        top: `${-yPos * 3}%`,
+                        left: `${-xPos * 3}%`,
+                      }}
+                    />
+                  </div>
+                );
+              })}
           </div>
         );
       case 2: // Embedding generation

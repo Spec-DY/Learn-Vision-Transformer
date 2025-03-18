@@ -54,9 +54,3 @@ In our demo, you'll see how a Vision Transformer processes an image step by step
 2. Watch how it gets divided into patches
 3. Observe the attention patterns between different parts of the image
 4. See the final prediction
-
-## Conclusion
-
-Vision Transformers represent a fundamental shift in how computers understand images. While the technology is complex, the idea is intuitive: look at everything at once and pay attention to how the parts relate to each other - much like how humans process visual information!
-
-Thank you for your attention. Feel free to try the interactive demo and ask any questions!

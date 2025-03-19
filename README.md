@@ -4,7 +4,7 @@
 
 - Curious on how to use vision transformer in reality? check out this [HuggingFace link](https://huggingface.co/spaces/dionjin/LearnVisionTransformer)</br>
 - Wondering how it actually works under the hood? I built [this website](https://vit.dylanjin.com) to explain ViT step by step
-<img src="https://github.com/user-attachments/assets/ae951650-b70b-4add-b831-a1f907cf8590" width="500">
+<img src="./thumbnail.png" width="500">
 
 
 

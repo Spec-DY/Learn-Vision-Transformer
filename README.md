@@ -1,8 +1,12 @@
 # Understanding Vision Transformers
 
-## Introduction
+## Interactive Demo
 
-Hello everyone! Today we're going to explore an exciting technology called Vision Transformers, or ViTs for short. Don't worry if you don't have any machine learning background - I'll explain everything in simple terms.
+- Curious on how to use vision transformer in reality? check out this [HuggingFace link](https://huggingface.co/spaces/dionjin/LearnVisionTransformer)</br>
+- Wondering how it actually works under the hood? I built [this website](https://vit.dylanjin.com) to explain ViT step by step
+<img src="./thumbnail.png" width="500">
+
+
 
 ## What is a Vision Transformer?
 

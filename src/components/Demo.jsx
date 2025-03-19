@@ -424,21 +424,80 @@ const VisionTransformerDemo = () => {
           </h3>
           <p className="text-sm text-gray-700 mb-2">
             {currentStep === 0 &&
-              "Input images are typically resized to 224×224 pixels and normalized."}
+              `We begin with a simple image of a cat. This is the input for the Vision Transformer—just like images that we humans see with our eyes. 
+            Computers don't 'see' a cat directly like humans do. Instead, they see a matrix of numbers, with each number representing the color information of a pixel. 
+            The Vision Transformer's job is to understand what these numbers represent.
+            Traditional computer vision methods work by looking at local features (like first examining the eyes, then the ears, then the whiskers), 
+            but Vision Transformers are more like humans—they can pay attention to multiple parts of an image simultaneously and understand the relationships between them.`}
             {currentStep === 1 &&
-              "Standard ViT uses 16×16 pixel patches, resulting in 196 patches for a 224×224 image."}
+              `In this second step, the Vision Transformer divides the image into multiple small pieces, like cutting a puzzle into small squares. In our demonstration, we've divided the image into a 4×4 grid, giving us 16 patches in total.
+            In a real Vision Transformer, a more detailed division is typically used, such as splitting a 224×224 pixel image into 196 patches of 16×16 pixels each.
+            This patch-based approach is one of the key differences between Vision Transformers and traditional Convolutional Neural Networks (CNNs). CNNs use sliding windows to look at local features, while ViTs directly divide the image into non-overlapping patches, allowing them to process information more globally.
+            `}
             {currentStep === 2 &&
-              "Linear projection maps each patch to an embedding dimension (typically 768 or 1024)."}
+              `In the third step, the Vision Transformer converts each image patch into a numerical vector (embedding). These vectors are mathematical representations of the patches, containing their feature information.
+            Imagine translating each patch into a "language" that computers can understand. In our demonstration, each patch is converted into a 768-dimensional vector. This number may seem large, but it's why AI can capture such rich visual information—it uses a large number of values to describe each image patch.
+            This is like converting visual information into a computer's "thinking space," enabling the model to reason about the image.
+            `}
             {currentStep === 3 &&
-              "Sinusoidal or learned position embeddings maintain spatial information."}
+              `The fourth step is crucial! When we divide an image into patches, we lose information about where each patch is located in the original image. Vision Transformers solve this problem by adding "position encodings."
+            This is like numbering each piece of a puzzle, telling the computer "this piece is in the top left," "this piece is in the bottom right," and so on. This allows the model to know the spatial position of each patch, helping it understand the spatial structure of the image.
+            Without position encoding, the model might confuse an ear in the top left with a paw in the bottom right because it wouldn't know which is where. Position encoding ensures that the model understands the positional relationship of each part within the overall image.
+            `}
             {currentStep === 4 &&
-              "Self-attention computes Query, Key, and Value matrices to determine relationships."}
+              `The fifth step is the core magic of Vision Transformers—the self-attention mechanism. This mechanism allows each image patch to "attend to" or "look at" all other patches, evaluating the relationships and importance between them.
+            Imagine that as the model processes the patch containing one of the cat's eyes, it asks: "Which other patches are related to me?" It might find that patches containing the other eye, the ears, and the nose are all important, while background patches are less relevant.
+
+            In this interface, we see 16 image patches (P0 to P15). inside the model, each patch is calculating its relationship strength with all other patches. This self-attention mechanism enables the model to understand relationships between different parts of the image, which is key to recognizing complex patterns.
+            `}
             {currentStep === 5 &&
-              "ViT typically uses 12 attention heads, each focusing on different relationship patterns."}
-            {currentStep === 6 &&
-              "Standard ViT has 12 transformer blocks with skip connections."}
+              `In the sixth step, Vision Transformers use "multi-head attention"—essentially multiple self-attention mechanisms working simultaneously, each focusing on different aspects or features of the image.
+            This is like having multiple experts analyzing the same image, but each expert focuses on different types of patterns or relationships:
+            some heads may focus on color relationships, some may focus on shape relationships, texture relationships or spatial relationships.
+            In this demonstration, we show 16 attention heads organized into two groups. In an actual ViT model, there are typically 8 to 16 attention heads, each independently learning different types of visual relationships, and then combining this information.
+            `}
+            {currentStep === 6 && (
+              <>
+                <p>
+                  The seventh step shows the internal structure of a complete
+                  Transformer block. Each Transformer block contains several key
+                  components:
+                </p>
+                <ul className="list-decimal pl-5">
+                  <li>
+                    <strong>Multi-Head Attention:</strong> The mechanism we just
+                    discussed, allowing the model to look at relationships
+                    between different parts of the image.
+                  </li>
+                  <li>
+                    <strong>Layer Normalization:</strong> Ensures data
+                    stability, preventing numerical issues during training.
+                  </li>
+                  <li>
+                    <strong>Feed-Forward Neural Network:</strong> Further
+                    processes the output of the attention mechanism, extracting
+                    higher-level features.
+                  </li>
+                  <li>
+                    <strong>Another Layer Normalization:</strong> Again
+                    stabilizes the data.
+                  </li>
+                </ul>
+                <p>
+                  A typical Vision Transformer includes multiple Transformer
+                  blocks, with each block receiving information from the
+                  previous one, extracting increasingly higher-level features
+                  layer by layer. It's like understanding an image in
+                  progressively deeper layers, from simple lines and colors to
+                  complex shapes and semantic concepts.
+                </p>
+              </>
+            )}
             {currentStep === 7 &&
-              "A special [CLS] token is typically used for final classification."}
+              `The final step is the classification process. After processing through all the Transformer blocks, the model generates a final representation of the image and uses it to predict what's in the image.
+            In our example, the model identifies with 61.38% confidence that the image contains a Tabby cat. This high confidence indicates the model is very certain of its prediction.
+            In reality, Vision Transformers can typically recognize thousands of different objects, animals, scenes, and more, with very high accuracy—sometimes even exceeding human performance.
+            `}
           </p>
         </div>
       )}

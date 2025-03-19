@@ -331,8 +331,14 @@ const VisionTransformerDemo = () => {
             <div className="h-6 flex justify-center">
               <div className="w-2 bg-gray-400"></div>
             </div>
-            <div className="w-48 p-4 bg-green-100 rounded-lg border-2 border-green-400 flex items-center justify-center">
-              <span className="font-bold text-lg">CAT 🐱 (98.7%)</span>
+            <div className="w-48 p-4 bg-green-100 rounded-lg border-2 border-green-400 flex items-center justify-center shadow-lg">
+              <span className="font-bold text-lg">Tabby Cat 🐱 (61.38%)</span>
+            </div>
+            <div className="w-48 p-4 bg-grey-100 rounded-lg border-2 border-grey-400 flex items-center justify-center shadow-lg">
+              <span className="font-bold text-lg">Egyptian Cat (12.61%)</span>
+            </div>
+            <div className="w-48 p-4 bg-grey-100 rounded-lg border-2 border-grey-400 flex items-center justify-center shadow-lg">
+              <span className="font-bold text-lg">Tiger Cat (8.50%)</span>
             </div>
           </div>
         );

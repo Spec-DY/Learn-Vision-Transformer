@@ -2,11 +2,10 @@
 
 ## Interactive Demo
 
-- Curious on how to use vision transformer in reality? check out this [HuggingFace link](https://huggingface.co/spaces/dionjin/LearnVisionTransformer)</br>
+- Curious on how to use vision transformer in reality? check out this [HuggingFace link](https://huggingface.co/spaces/dionjin/LearnVisionTransformer) or [this repo](https://github.com/Spec-DY/ViT-gradio-demo)</br>
 - Wondering how it actually works under the hood? I built [this website](https://vit.dylanjin.com) to explain ViT step by step
 <img src="./thumbnail.png" width="500">
 
-*How to use ViT through Python? check [this repo](https://github.com/Spec-DY/ViT-gradio-demo)*
 
 
 
